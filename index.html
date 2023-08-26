@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+        <title>Frontend Mentor | Interactive rating component</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <main>
+            <section>
+                <div class="card">
+                    <div class="rating star">
+                        <img src="images/icon-star.svg" alt="icon-star" />
+                    </div>
+                    <p class="large bold">How did we do?</p>
+                    <p class="dim small">
+                        Please let us know how we did with your support request.
+                        All feedback is appreciated to help us improve our
+                        offering!
+                    </p>
+                    <div class="rating-container">
+                        <div class="rating dim">1</div>
+                        <div class="rating dim">2</div>
+                        <div class="rating dim">3</div>
+                        <div class="rating dim">4</div>
+                        <div class="rating dim">5</div>
+                    </div>
+                    <button>Submit</button>
+                </div>
+                <div class="card final hidden">
+                    <img
+                    style="margin: auto;"
+                        src="images/illustration-thank-you.svg"
+                        alt="illustration-thank-you"
+                    />
+                    <p class="final-rating">
+                        You selected <span></span> out of 5
+                    </p>
+                    <p class="large bold">Thank you!</p>
+                    <p class="dim small">
+                        We appreciate you taking the time to give a rating. If
+                        you ever need more support, don’t hesitate to get in
+                        touch!
+                    </p>
+                </div>
+            </section>
+            <footer>
+                Challenge by
+                <a
+                    href="https://www.frontendmentor.io?ref=challenge"
+                    target="_blank"
+                    >Frontend Mentor</a
+                >. Coded by <a href="#">TS</a>.
+            </footer>
+        </main>
+    </body>
+    <script>
+        let final_rating;
+        const ratings = document.querySelectorAll(".rating");
+        ratings.forEach((rating) =>
+            rating.addEventListener("click", (e) => {
+                ratings.forEach((r) => r.classList.remove("selected"));
+                e.target.classList.add("selected");
+                final_rating = rating.textContent;
+            })
+        );
+        const submit = document.querySelector("button");
+        submit.addEventListener("click", () => {
+            if (!final_rating) alert("Sorry. Please select a rating.");
+            else {
+                document.querySelector(".hidden").classList.remove("hidden");
+                document
+                    .querySelector(".card:not(.hidden)")
+                    .classList.add("hidden");
+                document.querySelector("p.final-rating span").textContent =
+                    final_rating;
+            }
+        });
+    </script>
+</html>

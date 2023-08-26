@@ -1,8 +1,8 @@
 # Frontend Mentor - Interactive rating component
 
-![]()
+![](/images/Screenshot%20from%202023-08-26%2018-48-45.png)
 
-[Live Demo]()
+[Live Demo](https://stressedball.github.io/interactive-rating-component-main/)
 
 Another day, another challenge :)
 

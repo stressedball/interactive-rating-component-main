@@ -104,6 +104,10 @@ section {
     background-color: var(--orange);
 }
 
+.rating:not(.start):hover, .selected {
+    color: var(--white);
+}
+
 button {
     display: block;
     background-color: var(--orange);
@@ -117,6 +121,11 @@ button {
     font-weight: 700;
     font-size: inherit;
     letter-spacing: 2px;
+}
+
+button:hover {
+    background-color: var(--white);
+    color: var(--orange);
 }
 
 .final-rating {
